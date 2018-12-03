@@ -73,7 +73,7 @@ export default {
     },
     onInputChange(e){
       const files = e.target.files;
-      
+
       Array.from(files).forEach(file => this.addImage(file));
     }
   }
@@ -131,6 +131,44 @@ export default {
         opacity: 0;
         z-index: -2;
       }
+    }
+
+    .images-preview{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+
+      .img-wrapper{
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        height: 150px;
+        justify-content: space-between;
+        background: #fff;
+        box-shadow: 5px 5px 20px #3e3737;
+
+        img{
+          max-height: 115px;
+        }
+
+      }
+      
+        .details{
+          font-size: 12px;
+          background: #fff;
+          color: #000;
+          display: flex;
+          flex-direction: column;
+          align-items: self-start;
+          padding: 3px 6px;
+
+          .name{
+            overflow: hidden;
+            height: 18px;
+            
+          }
+        }
     }
   }
 </style>
