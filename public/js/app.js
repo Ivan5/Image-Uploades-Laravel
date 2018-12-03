@@ -47824,11 +47824,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isDragging: false,
+      dragCount: 0,
+      files: [],
+      images: []
+    };
+  },
+
   methods: {
+    onDragEnter: function onDragEnter(e) {
+      e.preventDefault();
+      this.dragCount++;
+      this.isDragging = true;
+    },
+    onDragLeve: function onDragLeve(e) {
+      e.preventDefault();
+      this.dragCount--;
+
+      if (this.dragCount <= 0) {
+        this.isDragging = false;
+      }
+    },
+    onDrop: function onDrop(e) {
+      var _this = this;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      this.isDragging = false;
+
+      var files = e.dataTransfer.files;
+
+      Array.from(files).forEach(function (file) {
+        return _this.addImage(file);
+      });
+    },
+    addImage: function addImage(file) {
+      var _this2 = this;
+
+      if (!file.type.match('image.*')) {
+        console.log(file.name + ' is not a image');
+        return;
+      }
+      this.files.push(file);
+
+      var image = new Image(),
+          reader = new FileReader();
+
+      reader.onload = function (e) {
+        return _this2.images.push(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    },
     onInputChange: function onInputChange(e) {
-      console.log(e);
+      var _this3 = this;
+
+      var files = e.target.files;
+
+      Array.from(files).forEach(function (file) {
+        return _this3.addImage(file);
+      });
     }
   }
 });
@@ -47908,7 +47979,7 @@ exports = module.exports = __webpack_require__(45)(false);
 
 
 // module
-exports.push([module.i, "\n.uploader[data-v-4984bfe4] {\n  width: 100%;\n  background: #2196F3;\n  color: #fff;\n  padding: 40px 15px;\n  text-align: center;\n  border-radius: 10px;\n  border: 3px dashed #fff;\n  font-size: 20px;\n  position: relative;\n}\n.uploader i[data-v-4984bfe4] {\n    font-size: 85px;\n}\n.uploader .file-input[data-v-4984bfe4] {\n    width: 200px;\n    margin: auto;\n    height: 68px;\n    position: relative;\n}\n.uploader .file-input label[data-v-4984bfe4],\n    .uploader .file-input input[data-v-4984bfe4] {\n      background: #fff;\n      color: #2196F3;\n      width: 100%;\n      position: absolute;\n      left: 0;\n      top: 0;\n      padding: 10px;\n      border-radius: 4px;\n      margin-top: 7px;\n      cursor: pointer;\n}\n.uploader .file-input input[data-v-4984bfe4] {\n      opacity: 0;\n      z-index: -2;\n}\n", ""]);
+exports.push([module.i, "\n.uploader[data-v-4984bfe4] {\n  width: 100%;\n  background: #2196F3;\n  color: #fff;\n  padding: 40px 15px;\n  text-align: center;\n  border-radius: 10px;\n  border: 3px dashed #fff;\n  font-size: 20px;\n  position: relative;\n}\n.uploader.dragging[data-v-4984bfe4] {\n    background: #fff;\n    color: #2196F3;\n    border: 3px dashed #2196F3;\n}\n.uploader.dragging .file-input label[data-v-4984bfe4] {\n      background: #2196F3;\n      color: #fff;\n}\n.uploader i[data-v-4984bfe4] {\n    font-size: 85px;\n}\n.uploader .file-input[data-v-4984bfe4] {\n    width: 200px;\n    margin: auto;\n    height: 68px;\n    position: relative;\n}\n.uploader .file-input label[data-v-4984bfe4],\n    .uploader .file-input input[data-v-4984bfe4] {\n      background: #fff;\n      color: #2196F3;\n      width: 100%;\n      position: absolute;\n      left: 0;\n      top: 0;\n      padding: 10px;\n      border-radius: 4px;\n      margin-top: 7px;\n      cursor: pointer;\n}\n.uploader .file-input input[data-v-4984bfe4] {\n      opacity: 0;\n      z-index: -2;\n}\n", ""]);
 
 // exports
 
@@ -47921,22 +47992,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "uploader" }, [
-    _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
-    _vm._v(" "),
-    _c("p", [_vm._v("Drag your images here")]),
-    _vm._v(" "),
-    _c("div", [_vm._v("OR")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "file-input" }, [
-      _c("label", { attrs: { for: "file" } }, [_vm._v("Select a file")]),
+  return _c(
+    "div",
+    {
+      staticClass: "uploader",
+      class: { dragging: _vm.isDragging },
+      on: {
+        dragenter: _vm.onDragEnter,
+        dragleave: _vm.onDragLeve,
+        dragover: function($event) {
+          $event.preventDefault()
+        },
+        drop: _vm.onDrop
+      }
+    },
+    [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.images.length,
+              expression: "!images.length"
+            }
+          ]
+        },
+        [
+          _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Drag your images here")]),
+          _vm._v(" "),
+          _c("div", [_vm._v("OR")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "file-input" }, [
+            _c("label", { attrs: { for: "file" } }, [_vm._v("Select a file")]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", id: "file", multiple: "" },
+              on: { change: _vm.onInputChange }
+            })
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("input", {
-        attrs: { type: "file", id: "file", multiple: "" },
-        on: { change: _vm.onInputChange }
-      })
-    ])
-  ])
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.images.length,
+              expression: "images.length"
+            }
+          ],
+          staticClass: "images-preview"
+        },
+        _vm._l(_vm.images, function(image, index) {
+          return _c("div", { key: index, staticClass: "img-wrapper" }, [
+            _c("img", {
+              attrs: { src: image, alt: "Image Uploader " + index }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "details" }, [
+              _c("span", {
+                staticClass: "name",
+                domProps: { textContent: _vm._s(_vm.files[index].name) }
+              }),
+              _vm._v(" "),
+              _c("span", {
+                staticClass: "size",
+                domProps: { textContent: _vm._s(_vm.files[index].size) }
+              })
+            ])
+          ])
+        })
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
