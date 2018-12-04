@@ -81,7 +81,17 @@ export default {
       Array.from(files).forEach(file => this.addImage(file));
     },
     upload(){
-      
+      const formData = new FormData();
+      this.files.forEach(file => {
+        formData.append('images[]', file, file.name);
+      });
+
+      axios.post('/images-upload', formData)
+        .then(response => {
+          alert('Images have been uploaded succesfully');
+          this.images = [];
+          this.files = [];
+        })
     }
   }
 }

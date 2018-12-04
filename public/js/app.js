@@ -47943,7 +47943,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return _this3.addImage(file);
       });
     },
-    upload: function upload() {}
+    upload: function upload() {
+      var _this4 = this;
+
+      var formData = new FormData();
+      this.files.forEach(function (file) {
+        formData.append('images[]', file, file.name);
+      });
+
+      axios.post('/images-upload', formData).then(function (response) {
+        alert('Images have been uploaded succesfully');
+        _this4.images = [];
+        _this4.files = [];
+      });
+    }
   }
 });
 
