@@ -1,5 +1,9 @@
 <template>
   <div class="uploader" @dragenter="onDragEnter" @dragleave="onDragLeve" @dragover.prevent @drop="onDrop" :class="{ dragging : isDragging }">
+    <div class="upload-control" v-show="images.length">
+      <label for="file">Select a file</label>
+      <button @click="upload">Upload</button>
+    </div>
     <div v-show="!images.length">
       <i class="fas fa-cloud-upload-alt"></i>
       <p>Drag your images here</p>
@@ -75,6 +79,9 @@ export default {
       const files = e.target.files;
 
       Array.from(files).forEach(file => this.addImage(file));
+    },
+    upload(){
+      
     }
   }
 }
@@ -91,6 +98,32 @@ export default {
     border: 3px dashed #fff;
     font-size: 20px;
     position: relative;
+
+    .upload-control{
+      position: absolute;
+      width: 100%;
+      background: #fff;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      padding: 10px;
+      padding-bottom: 4px;
+      text-align: right;
+
+      button, label{
+        background: #2196F3;
+        border: 2px solid #03A9F4;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      label{
+        padding: 2px 5px;
+        margin-right: 10px;
+      }
+    }
 
     &.dragging {
       background: #fff;

@@ -47417,13 +47417,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(55)
+  __webpack_require__(43)
 }
 var normalizeComponent = __webpack_require__(11)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(49)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47462,8 +47462,46 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */,
-/* 44 */,
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(44);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(46)("ad437750", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4984bfe4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ImageUploader.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4984bfe4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ImageUploader.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(45)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.uploader[data-v-4984bfe4] {\n  width: 100%;\n  background: #2196F3;\n  color: #fff;\n  padding: 40px 15px;\n  text-align: center;\n  border-radius: 10px;\n  border: 3px dashed #fff;\n  font-size: 20px;\n  position: relative;\n}\n.uploader .upload-control[data-v-4984bfe4] {\n    position: absolute;\n    width: 100%;\n    background: #fff;\n    top: 0;\n    left: 0;\n    border-top-left-radius: 7px;\n    border-top-right-radius: 7px;\n    padding: 10px;\n    padding-bottom: 4px;\n    text-align: right;\n}\n.uploader .upload-control button[data-v-4984bfe4], .uploader .upload-control label[data-v-4984bfe4] {\n      background: #2196F3;\n      border: 2px solid #03A9F4;\n      border-radius: 2px;\n      color: #fff;\n      font-size: 15px;\n      cursor: pointer;\n}\n.uploader .upload-control label[data-v-4984bfe4] {\n      padding: 2px 5px;\n      margin-right: 10px;\n}\n.uploader.dragging[data-v-4984bfe4] {\n    background: #fff;\n    color: #2196F3;\n    border: 3px dashed #2196F3;\n}\n.uploader.dragging .file-input label[data-v-4984bfe4] {\n      background: #2196F3;\n      color: #fff;\n}\n.uploader i[data-v-4984bfe4] {\n    font-size: 85px;\n}\n.uploader .file-input[data-v-4984bfe4] {\n    width: 200px;\n    margin: auto;\n    height: 68px;\n    position: relative;\n}\n.uploader .file-input label[data-v-4984bfe4],\n    .uploader .file-input input[data-v-4984bfe4] {\n      background: #fff;\n      color: #2196F3;\n      width: 100%;\n      position: absolute;\n      left: 0;\n      top: 0;\n      padding: 10px;\n      border-radius: 4px;\n      margin-top: 7px;\n      cursor: pointer;\n}\n.uploader .file-input input[data-v-4984bfe4] {\n      opacity: 0;\n      z-index: -2;\n}\n.uploader .images-preview[data-v-4984bfe4] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-top: 20px;\n}\n.uploader .images-preview .img-wrapper[data-v-4984bfe4] {\n      width: 160px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      margin: 10px;\n      height: 150px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      background: #fff;\n      -webkit-box-shadow: 5px 5px 20px #3e3737;\n              box-shadow: 5px 5px 20px #3e3737;\n}\n.uploader .images-preview .img-wrapper img[data-v-4984bfe4] {\n        max-height: 115px;\n}\n.uploader .images-preview .details[data-v-4984bfe4] {\n      font-size: 12px;\n      background: #fff;\n      color: #000;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-align: self-start;\n          -ms-flex-align: self-start;\n              align-items: self-start;\n      padding: 3px 6px;\n}\n.uploader .images-preview .details .name[data-v-4984bfe4] {\n        overflow: hidden;\n        height: 18px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 45 */
 /***/ (function(module, exports) {
 
@@ -47835,6 +47873,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -47900,92 +47942,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       Array.from(files).forEach(function (file) {
         return _this3.addImage(file);
       });
-    }
+    },
+    upload: function upload() {}
   }
 });
 
 /***/ }),
-/* 49 */,
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-9" }, [
-        _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Upload Image")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("image-uploader")], 1)
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-cd268472", module.exports)
-  }
-}
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(56);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(46)("ad437750", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4984bfe4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ImageUploader.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4984bfe4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ImageUploader.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(45)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.uploader[data-v-4984bfe4] {\n  width: 100%;\n  background: #2196F3;\n  color: #fff;\n  padding: 40px 15px;\n  text-align: center;\n  border-radius: 10px;\n  border: 3px dashed #fff;\n  font-size: 20px;\n  position: relative;\n}\n.uploader.dragging[data-v-4984bfe4] {\n    background: #fff;\n    color: #2196F3;\n    border: 3px dashed #2196F3;\n}\n.uploader.dragging .file-input label[data-v-4984bfe4] {\n      background: #2196F3;\n      color: #fff;\n}\n.uploader i[data-v-4984bfe4] {\n    font-size: 85px;\n}\n.uploader .file-input[data-v-4984bfe4] {\n    width: 200px;\n    margin: auto;\n    height: 68px;\n    position: relative;\n}\n.uploader .file-input label[data-v-4984bfe4],\n    .uploader .file-input input[data-v-4984bfe4] {\n      background: #fff;\n      color: #2196F3;\n      width: 100%;\n      position: absolute;\n      left: 0;\n      top: 0;\n      padding: 10px;\n      border-radius: 4px;\n      margin-top: 7px;\n      cursor: pointer;\n}\n.uploader .file-input input[data-v-4984bfe4] {\n      opacity: 0;\n      z-index: -2;\n}\n.uploader .images-preview[data-v-4984bfe4] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-top: 20px;\n}\n.uploader .images-preview .img-wrapper[data-v-4984bfe4] {\n      width: 160px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      margin: 10px;\n      height: 150px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      background: #fff;\n      -webkit-box-shadow: 5px 5px 20px #3e3737;\n              box-shadow: 5px 5px 20px #3e3737;\n}\n.uploader .images-preview .img-wrapper img[data-v-4984bfe4] {\n        max-height: 115px;\n}\n.uploader .images-preview .details[data-v-4984bfe4] {\n      font-size: 12px;\n      background: #fff;\n      color: #000;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-align: self-start;\n          -ms-flex-align: self-start;\n              align-items: self-start;\n      padding: 3px 6px;\n}\n.uploader .images-preview .details .name[data-v-4984bfe4] {\n        overflow: hidden;\n        height: 18px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 57 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48007,6 +47970,26 @@ var render = function() {
       }
     },
     [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.images.length,
+              expression: "images.length"
+            }
+          ],
+          staticClass: "upload-control"
+        },
+        [
+          _c("label", { attrs: { for: "file" } }, [_vm._v("Select a file")]),
+          _vm._v(" "),
+          _c("button", { on: { click: _vm.upload } }, [_vm._v("Upload")])
+        ]
+      ),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -48082,6 +48065,42 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-4984bfe4", module.exports)
   }
 }
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container mt-3" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-9" }, [
+        _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Upload Image")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [_c("image-uploader")], 1)
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cd268472", module.exports)
+  }
+}
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
