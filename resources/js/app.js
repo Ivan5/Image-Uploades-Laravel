@@ -3,8 +3,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
-
+import Toastr from 'vue-toastr';
+Vue.use(Toastr);
 
 Vue.component('app', require('./components/AppComponent.vue'));
 

@@ -25,3 +25,6 @@ import ImageUploader from './ImageUploader.vue';
         }
     }
 </script>
+<style lang="sass">
+@import '~vue-toastr/src/vue-toastr.scss';
+</style>

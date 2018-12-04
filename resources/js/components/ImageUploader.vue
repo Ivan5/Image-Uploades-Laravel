@@ -63,7 +63,7 @@ export default {
     },
     addImage(file){
       if(!file.type.match('image.*')){
-        console.log(`${file.name} is not a image`);
+        this.$toastr.e(`${file.name} is not an image`);
         return;
       }
       this.files.push(file);
@@ -88,7 +88,7 @@ export default {
 
       axios.post('/images-upload', formData)
         .then(response => {
-          alert('Images have been uploaded succesfully');
+          this.$toastr.s('All image upload successfully');
           this.images = [];
           this.files = [];
         })
